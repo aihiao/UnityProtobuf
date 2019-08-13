@@ -2,6 +2,9 @@
 using System.IO;
 using ProtoBuf;
 
+/// <summary>
+/// Android支持此模式, IOS不支持此模式
+/// </summary>
 public class MetaDataProtobufSerializer 
 {
     public void Serialize<T>(Stream destination, T instance)

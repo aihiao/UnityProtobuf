@@ -3,7 +3,7 @@ using System.IO;
 
 public class GameMain : MonoBehaviour
 {
-
+#if UNITY_IPHONE || UNITY_EDITOR
     void Awake()
     {
         MemoryStream ms = new MemoryStream();
@@ -19,7 +19,9 @@ public class GameMain : MonoBehaviour
         ActiveCodeReqPROTO activeCodeReq = (ActiveCodeReqPROTO)serializer.Deserialize(memoryStream, typeof(ActiveCodeReqPROTO));
         Debug.LogError(string.Format("AccountId = {0}, ActiveCode = {1}", activeCodeReq.AccountId, activeCodeReq.ActiveCode));
     }
+#endif
 
+#if UNITY_ANDROID || UNITY_EDITOR
     void Start()
     {
         MemoryStream ms = new MemoryStream();
@@ -42,5 +44,6 @@ public class GameMain : MonoBehaviour
         // 这里打印Error级别的日志, 是为了在手机上可以更好的查看日志。
         Debug.LogError(string.Format("AccountId = {0}, ActiveCode = {1}", activeCodeReq.AccountId, activeCodeReq.ActiveCode));
     }
+#endif
 
 }

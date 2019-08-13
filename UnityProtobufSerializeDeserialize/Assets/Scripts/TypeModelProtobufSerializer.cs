@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using ProtoBuf;
 using ProtoBuf.Meta;
 
+/// <summary>
+/// Android支持此模式, IOS支持此模式
+/// </summary>
 public class ProtobufSerializer
 {
     private TypeModel typeModel = null;
